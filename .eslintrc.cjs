@@ -143,9 +143,7 @@ module.exports = {
 		}],
 
 		// jsdoc
-		'jsdoc/check-tag-names': ['error', {
-			definedTags: ['component'],
-		}],
+		'jsdoc/check-tag-names': ['error'],
 		'jsdoc/require-jsdoc': ['error', {
 			require: {
 				ArrowFunctionExpression: true,
