@@ -13,10 +13,7 @@
 		"skipLibCheck": true,
     "target": "esnext"
 	},
-	"exclude": [
-		"**/*.ts",
-		".github",
-		".yarn",
-		"node_modules"
+	"include": [
+		"src/**/*.js"
 	]
 }
