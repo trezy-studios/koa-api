@@ -20,7 +20,7 @@
     "tsconfig.json",
     "types/**/*"
   ],
-  "types": "./types",
+  "types": "./types/index.d.ts",
   "packageManager": "yarn@4.0.2",
   "publishConfig": {
     "access": "public"
