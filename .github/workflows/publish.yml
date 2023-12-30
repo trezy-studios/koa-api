@@ -58,6 +58,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Show npm config
+        run: cat ./.npmrc
+
       - name: Publish
         if: steps.get-next-version.outputs.new-release-published == 'true'
         run: yarn npm publish --tag ${{ github.ref_name == 'main' && 'latest' || github.ref_name }}
