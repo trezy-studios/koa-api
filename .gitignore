@@ -9,8 +9,7 @@
 .nyc_output
 coverage
 node_modules
+types
 yarn-error.log
-
-**/*.ts
 
 .env
