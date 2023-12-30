@@ -50,8 +50,20 @@ jobs:
       - name: Generate types
         run: yarn generate-types
 
-      - name: Release
+      - name: Get Next Version
+        run: yarn semantic-release --dry-run
+        id: get-next-version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn semantic-release
+
+      - name: Show Version
+        if: steps.get-next-version.outputs.new-release-published == 'true'
+        run: echo "Next version is ${{ steps.get-next-version.outputs.new-release-version }} (${{ github.ref_name }})"
+
+      - name: Update Version
+        if: steps.get-next-version.outputs.new-release-published == 'true'
+        run: yarn version --new-version ${{ steps.get-next-version.outputs.new-release-version }} --no-commit-hooks --no-git-tag-version
+
+      - name: Publish
+        if: steps.get-next-version.outputs.new-release-published == 'true'
+        run: yarn npm publish --tag ${{ github.ref_name }}
