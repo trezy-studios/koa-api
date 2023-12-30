@@ -62,7 +62,7 @@ jobs:
 
       - name: Update Version
         if: steps.get-next-version.outputs.new-release-published == 'true'
-        run: yarn version --new-version ${{ steps.get-next-version.outputs.new-release-version }} --no-commit-hooks --no-git-tag-version
+        run: yarn version ${{ steps.get-next-version.outputs.new-release-version }}
 
       - name: Publish
         if: steps.get-next-version.outputs.new-release-published == 'true'
