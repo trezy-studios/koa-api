@@ -40,6 +40,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
+          always-auth: 'true'
           cache: 'yarn'
           cache-dependency-path: 'yarn.lock'
           node-version-file: '.nvmrc'
